@@ -1,0 +1,8 @@
+<section *ngIf="countries">
+  <div *ngFor="let country of countries">
+    <h4>{{ country.name.common }}</h4>
+    <p>{{ country.population }}</p>
+    <p>{{ country.region }}</p>
+    <p>{{ country.capital }}</p>
+  </div>
+</section>

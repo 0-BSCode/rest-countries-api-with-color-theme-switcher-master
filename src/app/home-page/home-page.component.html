@@ -1,0 +1,5 @@
+<main>
+  <app-search (startSearchEvent)="searchCountryByLocation($event)"></app-search>
+  <app-loader *ngIf="!countries"></app-loader>
+  <app-countries *ngIf="countries" [countries]="countries"></app-countries>
+</main>

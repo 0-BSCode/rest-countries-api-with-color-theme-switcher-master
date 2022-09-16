@@ -1,0 +1,8 @@
+<form #form="ngForm" (submit)="startSearch()">
+  <input
+    type="text"
+    placeholder="Search for a country..."
+    name="country"
+    [(ngModel)]="search"
+  />
+</form>
