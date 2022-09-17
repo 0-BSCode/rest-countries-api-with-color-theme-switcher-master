@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../services/countries/countries.service';
+import { Country } from 'src/types/countries';
+import { Continents } from 'src/enums/continents';
 
 @Component({
   selector: 'app-home-page',
@@ -7,7 +9,8 @@ import { CountriesService } from '../services/countries/countries.service';
   styleUrls: ['./home-page.component.css'],
 })
 export class HomePageComponent implements OnInit {
-  countries?: any;
+  countries: Country[] = [];
+  region: string = Continents.ALL;
   constructor(private countriesService: CountriesService) {}
 
   ngOnInit(): void {
@@ -16,10 +19,28 @@ export class HomePageComponent implements OnInit {
       .subscribe((response) => (this.countries = response));
   }
 
-  searchCountryByLocation(searchString: string): void {
-    this.countries = undefined;
-    this.countriesService
-      .getCountriesByName(searchString)
-      .subscribe((response) => (this.countries = response));
+  searchCountryByName(name: string): void {
+    this.countries = [];
+    this.countriesService.getCountriesByName(name).subscribe((response) => {
+      this.countries = response;
+    });
+  }
+
+  searchCountryByRegion(region: string): void {
+    this.region = region;
+  }
+
+  filterCountryByRegion(): Country[] {
+    let newCountries: Country[] = [];
+
+    if (this.region === Continents.ALL) {
+      newCountries = this.countries;
+    } else {
+      for (const country of this.countries) {
+        if (country.region === this.region) newCountries.push(country);
+      }
+    }
+
+    return newCountries;
   }
 }

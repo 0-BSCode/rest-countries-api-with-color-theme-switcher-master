@@ -1,8 +1,16 @@
-<form #form="ngForm" (submit)="startSearch()">
+<form #form="ngForm" (submit)="startSearchByName()">
   <input
     type="text"
     placeholder="Search for a country..."
     name="country"
-    [(ngModel)]="search"
+    [(ngModel)]="nameFilter"
   />
 </form>
+<div>
+  <button>{{ continentFilter }}</button>
+  <ul>
+    <li *ngFor="let continent of continents">
+      <button (click)="startSearchByRegion(continent)">{{ continent }}</button>
+    </li>
+  </ul>
+</div>
