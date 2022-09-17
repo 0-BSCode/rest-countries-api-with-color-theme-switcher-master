@@ -7,6 +7,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: var(--theme-text);
+  transition: all 0.2s;
 }
 
 :root {

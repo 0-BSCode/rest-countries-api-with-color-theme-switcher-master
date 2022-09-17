@@ -1,0 +1,28 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 1rem;
+  background-color: var(--theme-elements);
+}
+
+.nav__title {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.nav__btn {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  background: none;
+  border: none;
+}
+
+.nav__btnImg {
+  width: 1rem;
+}
+
+.nav__btnText {
+  font-weight: 600;
+}

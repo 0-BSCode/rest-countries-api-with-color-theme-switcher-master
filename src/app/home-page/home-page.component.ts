@@ -21,12 +21,18 @@ export class HomePageComponent implements OnInit {
 
   searchCountryByName(name: string): void {
     this.countries = [];
-    this.countriesService.getCountriesByName(name).subscribe((response) => {
-      this.countries = response;
-    });
+    if (name.length) {
+      this.countriesService.getCountriesByName(name).subscribe((response) => {
+        this.countries = response;
+      });
+    } else {
+      this.countriesService
+        .getAllCountries()
+        .subscribe((response) => (this.countries = response));
+    }
   }
 
-  searchCountryByRegion(region: string): void {
+  setRegion(region: string): void {
     this.region = region;
   }
 

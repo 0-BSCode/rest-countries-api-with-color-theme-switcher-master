@@ -1,7 +1,7 @@
 <main>
   <app-search
     (searchByNameEvent)="searchCountryByName($event)"
-    (searchByRegionEvent)="searchCountryByRegion($event)"
+    (searchByRegionEvent)="setRegion($event)"
   ></app-search>
   <app-loader *ngIf="!countries.length"></app-loader>
   <app-countries
