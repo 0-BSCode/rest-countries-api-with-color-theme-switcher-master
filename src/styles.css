@@ -31,10 +31,17 @@
   --theme-background: var(--color-light-light-gray);
   --theme-input: var(--color-light-dark-gray);
   --theme-text: var(--color-light-v-dark-blue);
+  --box-shadow: 0rem 0rem 0.5rem 0rem hsla(0, 0%, 52%, 0.25);
+
 }
 
 html,
 body {
   height: 100vh;
   background-color: var(--theme-background);
+}
+
+button:hover,
+a:hover {
+  cursor: pointer;
 }

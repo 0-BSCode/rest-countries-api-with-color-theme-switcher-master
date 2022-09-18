@@ -12,16 +12,22 @@ export class SearchComponent implements OnInit {
   nameFilter?: string;
   continents: Continents[] = Object.values(Continents);
   continentFilter: string = 'Filter by Region';
+  showRegion: boolean = false;
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  toggleFilter(): void {
+    this.showRegion = !this.showRegion;
+  }
 
   startSearchByName(): void {
     this.searchByNameEvent.emit(this.nameFilter);
   }
 
   startSearchByRegion(region: string): void {
+    this.showRegion = false;
     this.continentFilter = region;
     this.searchByRegionEvent.emit(this.continentFilter);
   }

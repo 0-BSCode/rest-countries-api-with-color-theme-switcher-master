@@ -1,0 +1,41 @@
+.country__wrapper {
+  padding-inline: 3rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 2.5rem;
+  column-gap: 2.5rem;
+}
+
+.country {
+  max-width: 100%;
+  background-color: var(--theme-elements);
+  border-radius: 0.5rem;
+}
+
+.country__flagWrapper {
+  height: 50%;
+  overflow: hidden;
+}
+
+.country__flag {
+  width: 100%;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.country__information {
+  padding: 1.5rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+.country__name {
+  font-size: 1.5rem;
+}
+
+.country__detail {
+  font-size: 1rem;
+}

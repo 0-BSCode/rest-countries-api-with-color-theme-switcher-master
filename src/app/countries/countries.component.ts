@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Country } from 'src/types/countries';
+import { FormatterService } from '../services/formatter/formatter.service';
 
 @Component({
   selector: 'app-countries',
@@ -6,8 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./countries.component.css'],
 })
 export class CountriesComponent implements OnInit {
-  @Input() countries?: any;
-  constructor() {}
+  @Input() countries?: Country[];
+  constructor(private formatterService: FormatterService) {}
 
   ngOnInit(): void {}
+
+  formatPopulation(population: number): string {
+    return this.formatterService.formatPopulation(population);
+  }
 }

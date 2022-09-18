@@ -1,16 +1,40 @@
-<form #form="ngForm" (submit)="startSearchByName()">
-  <input
-    type="text"
-    placeholder="Search for a country..."
-    name="country"
-    [(ngModel)]="nameFilter"
-  />
-</form>
-<div>
-  <button>{{ continentFilter }}</button>
-  <ul>
-    <li *ngFor="let continent of continents">
-      <button (click)="startSearchByRegion(continent)">{{ continent }}</button>
-    </li>
-  </ul>
-</div>
+<section>
+  <form #form="ngForm" (submit)="startSearchByName()" class="form">
+    <div class="form__wrapper">
+      <img
+        src="assets/Linearicons-Free-v1.0.0/SVG/magnifier.svg"
+        class="form__inputImg"
+        alt="Search icon"
+      />
+      <input
+        class="form__input"
+        type="text"
+        placeholder="Search for a country..."
+        name="country"
+        [(ngModel)]="nameFilter"
+      />
+    </div>
+  </form>
+  <div class="filter">
+    <button class="filter__btn" (click)="toggleFilter()">
+      <p class="filter__txt">
+        {{ continentFilter }}
+      </p>
+      <img
+        src="assets/Linearicons-Free-v1.0.0/SVG/arrow-down.svg"
+        class="filter__img"
+        alt="Search icon"
+      />
+    </button>
+    <ul class="filter__items" *ngIf="showRegion">
+      <li class="filter__item" *ngFor="let continent of continents">
+        <button
+          class="filter__itemBtn"
+          (click)="startSearchByRegion(continent)"
+        >
+          {{ continent }}
+        </button>
+      </li>
+    </ul>
+  </div>
+</section>
