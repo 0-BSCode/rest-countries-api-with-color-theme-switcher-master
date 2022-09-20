@@ -1,19 +1,24 @@
 <section *ngIf="countries" class="country__wrapper">
   <div *ngFor="let country of countries" class="country">
-    <div class="country__flagWrapper">
-      <img
-        class="country__flag"
-        src="{{ country.flags.png }}"
-        alt="{{ country.name.common }} flag"
-      />
-    </div>
-    <div class="country__information">
-      <h4 class="country__name">{{ country.name.common }}</h4>
-      <p class="country__detail">
-        <b>Population: </b>{{ formatPopulation(country.population) }}
-      </p>
-      <p class="country__detail"><b>Region: </b>{{ country.region }}</p>
-      <p class="country__detail"><b>Capital: </b>{{ country.capital }}</p>
-    </div>
+    <a
+      class="country__link"
+      routerLink="/countries/{{ country.name.official }}"
+    >
+      <div class="country__flagWrapper">
+        <img
+          class="country__flag"
+          src="{{ country.flags.png }}"
+          alt="{{ country.name.common }} flag"
+        />
+      </div>
+      <div class="country__information">
+        <h4 class="country__name">{{ country.name.common }}</h4>
+        <p class="country__detail">
+          <b>Population: </b>{{ formatPopulation(country.population) }}
+        </p>
+        <p class="country__detail"><b>Region: </b>{{ country.region }}</p>
+        <p class="country__detail"><b>Capital: </b>{{ country.capital }}</p>
+      </div>
+    </a>
   </div>
 </section>

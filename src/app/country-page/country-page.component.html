@@ -1,1 +1,40 @@
-<p>country-page works!</p>
+<main>
+  <app-loader *ngIf="!country"></app-loader>
+  <button *ngIf="country" (click)="goBack()">Go Back</button>
+  <section *ngIf="country">
+    <div>
+      <img src="{{ country.flags.png }}" alt="{{ country.name.common }} flag" />
+      <div class="country__information">
+        <h4 class="country__name">{{ country.name.common }}</h4>
+        <p class="country__detail">
+          <b>Population: </b
+          >{{ formatterService.formatPopulation(country.population) }}
+        </p>
+        <p class="country__detail"><b>Region: </b>{{ country.region }}</p>
+        <p class="country__detail">
+          <b>Sub Region: </b>{{ country.subregion }}
+        </p>
+        <p class="country__detail"><b>Capital: </b>{{ country.capital }}</p>
+        <br />
+        <!-- * FORMAT TO ACCOUNT FOR MULTIPLE TLD'S -->
+        <p class="country__detail">
+          <b>Top Level Domain: </b>{{ country.tld[0] }}
+        </p>
+        <!-- * FORMAT TO ACCOUNT FOR MULTIPLE CURRENCIES -->
+        <p class="country__detail">
+          <b>Currencies: </b>{{ country.currencies }}
+        </p>
+        <p class="country__detail"><b>Languages: </b>{{ country.languages }}</p>
+      </div>
+      <div>
+        <h5>Border Countries:</h5>
+        <!-- * FORMAT TO INCLUDE MULTIPLE BORDERS -->
+        <ul *ngIf="borderCountries">
+          <li *ngFor="let country of borderCountries">
+            <p>{{ country.name.common }}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>

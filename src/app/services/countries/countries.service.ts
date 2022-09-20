@@ -13,11 +13,17 @@ export class CountriesService {
     return this.httpClient.get<Country[]>(`${this.baseUrl}/all`);
   }
 
-  getCountriesByName(name: string): Observable<any> {
-    return this.httpClient.get(`${this.baseUrl}/name/${name}`);
+  getCountriesByName(name: string): Observable<Country[]> {
+    return this.httpClient.get<Country[]>(`${this.baseUrl}/name/${name}`);
   }
 
-  getCountriesByRegion(region: string): Observable<any> {
-    return this.httpClient.get(`${this.baseUrl}/region/${region}`);
+  getCountriesByRegion(region: string): Observable<Country[]> {
+    return this.httpClient.get<Country[]>(`${this.baseUrl}/region/${region}`);
+  }
+
+  getCountriesByCodes(codes: string[]): Observable<Country[]> {
+    return this.httpClient.get<Country[]>(
+      `${this.baseUrl}/alpha?codes=${codes.join(',')}`
+    );
   }
 }

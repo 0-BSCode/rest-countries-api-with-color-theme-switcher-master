@@ -8,13 +8,24 @@
 }
 
 .country {
-  max-width: 100%;
   background-color: var(--theme-elements);
   border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.country:hover {
+  cursor: pointer;
+  scale: 1.1;
+}
+
+.country__link {
+  text-decoration: none;
+  border-radius: inherit;
 }
 
 .country__flagWrapper {
-  height: 50%;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
   overflow: hidden;
 }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Country } from 'src/types/countries';
+import { CountriesService } from '../services/countries/countries.service';
 import { FormatterService } from '../services/formatter/formatter.service';
 
 @Component({
@@ -9,7 +10,10 @@ import { FormatterService } from '../services/formatter/formatter.service';
 })
 export class CountriesComponent implements OnInit {
   @Input() countries?: Country[];
-  constructor(private formatterService: FormatterService) {}
+  constructor(
+    private formatterService: FormatterService,
+    private countriesService: CountriesService
+  ) {}
 
   ngOnInit(): void {}
 
