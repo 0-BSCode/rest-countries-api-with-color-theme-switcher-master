@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from '../services/theme/theme.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,17 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   private isDarkMode: boolean = false;
-  constructor() {}
+  constructor(private themeService: ThemeService) {}
 
   ngOnInit(): void {}
 
   toggleMode(): void {
     this.isDarkMode = !this.isDarkMode;
-    const dom = document.documentElement.style;
+
     if (this.isDarkMode) {
-      dom.setProperty('--theme-elements', 'black');
+      this.themeService.darkTheme();
     } else {
-      dom.setProperty('--theme-elements', 'white');
+      this.themeService.lightTheme();
     }
   }
 }

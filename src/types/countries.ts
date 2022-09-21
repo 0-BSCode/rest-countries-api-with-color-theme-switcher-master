@@ -8,13 +8,13 @@ export interface Country {
   independent: boolean;
   status: string;
   unMember: boolean;
-  currencies: Currencies;
+  currencies: Currency;
   idd: Idd;
   capital: string[];
   altSpellings: string[];
   region: string;
   subregion: string;
-  languages: Languages;
+  languages: Language;
   translations: Translations;
   latlng: number[];
   landlocked: boolean;
@@ -57,11 +57,11 @@ export interface Fil {
   common: string;
 }
 
-export interface Currencies {
-  PHP: Php;
+export interface Currency {
+  [key: string]: CurrencyInformation;
 }
 
-export interface Php {
+export interface CurrencyInformation {
   name: string;
   symbol: string;
 }
@@ -71,9 +71,8 @@ export interface Idd {
   suffixes: string[];
 }
 
-export interface Languages {
-  eng: string;
-  fil: string;
+export interface Language {
+  [key: string]: string;
 }
 
 export interface Translations {

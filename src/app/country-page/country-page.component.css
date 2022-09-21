@@ -1,0 +1,81 @@
+.country__page {
+  padding: 2.5rem 1.5rem;
+}
+
+.country__goBack {
+  display: flex;
+  align-items: center;
+  column-gap: 0.6rem;
+  padding: 0.4rem 1.3rem;
+  border: none;
+  background-color: var(--theme-elements);
+  box-shadow: var(--box-shadow);
+}
+
+.country__goBack--arrow {
+  width: 1.2rem;
+}
+
+.country__goBack--text {
+  font-size: 1rem;
+  font-family: 'Nunito Sans';
+}
+
+.country {
+
+}
+
+.country__information {
+  margin-top: 5rem;
+}
+
+.country__flag {
+  width: 100%;
+}
+
+.country__details {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.country__name {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.country__detail {
+  font-size: 1rem;
+  margin-top: 0.7rem;
+}
+
+.country__neighbors {
+  margin-top: 3rem;
+}
+
+.country__neighborsTitle {
+  font-size: 1.2rem;
+}
+
+.country__neighborsList {
+  margin-top: 1rem;
+  display: flex;
+  column-gap: 1rem;
+  row-gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.country__neighbor {
+  text-decoration: none;
+  background-color: var(--theme-elements);
+  padding: 0.4rem 1.5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.country__neighbor:hover {
+  scale: 1.1
+}
+
+.country__neighborName {
+  font-size: 1rem;
+}

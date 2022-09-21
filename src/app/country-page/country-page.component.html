@@ -1,10 +1,21 @@
-<main>
+<main class="country__page">
   <app-loader *ngIf="!country"></app-loader>
-  <button *ngIf="country" (click)="goBack()">Go Back</button>
-  <section *ngIf="country">
-    <div>
-      <img src="{{ country.flags.png }}" alt="{{ country.name.common }} flag" />
-      <div class="country__information">
+  <button class="country__goBack" *ngIf="country" (click)="goBack()">
+    <img
+      class="country__goBack--arrow"
+      src="assets/Linearicons-Free-v1.0.0/SVG/arrow-left.svg"
+      alt="Back arrow"
+    />
+    <p class="country__goBack--text">Back</p>
+  </button>
+  <section class="country" *ngIf="country">
+    <div class="country__information">
+      <img
+        class="country__flag"
+        src="{{ country.flags.png }}"
+        alt="{{ country.name.common }} flag"
+      />
+      <div class="country__details">
         <h4 class="country__name">{{ country.name.common }}</h4>
         <p class="country__detail">
           <b>Population: </b
@@ -16,24 +27,31 @@
         </p>
         <p class="country__detail"><b>Capital: </b>{{ country.capital }}</p>
         <br />
-        <!-- * FORMAT TO ACCOUNT FOR MULTIPLE TLD'S -->
         <p class="country__detail">
-          <b>Top Level Domain: </b>{{ country.tld[0] }}
+          <b>Top Level Domain: </b
+          >{{ formatterService.formatTopLevelDomains(country.tld) }}
         </p>
-        <!-- * FORMAT TO ACCOUNT FOR MULTIPLE CURRENCIES -->
         <p class="country__detail">
-          <b>Currencies: </b>{{ country.currencies }}
+          <b>Currencies: </b
+          >{{ formatterService.formatCurrencies(country.currencies) }}
         </p>
-        <p class="country__detail"><b>Languages: </b>{{ country.languages }}</p>
+        <p class="country__detail">
+          <b>Languages: </b
+          >{{ formatterService.formatLanguages(country.languages) }}
+        </p>
       </div>
-      <div>
-        <h5>Border Countries:</h5>
-        <!-- * FORMAT TO INCLUDE MULTIPLE BORDERS -->
-        <ul *ngIf="borderCountries">
-          <li *ngFor="let country of borderCountries">
-            <p>{{ country.name.common }}</p>
-          </li>
-        </ul>
+      <div class="country__neighbors">
+        <h5 class="country__neighborsTitle">Border Countries:</h5>
+        <div class="country__neighborsList" *ngIf="borderCountries">
+          <a
+            class="country__neighbor"
+            *ngFor="let country of borderCountries"
+            routerLink="/countries/{{ country.name.official }}"
+            target="_top"
+          >
+            <p class="country__neighborName">{{ country.name.common }}</p>
+          </a>
+        </div>
       </div>
     </div>
   </section>
