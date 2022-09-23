@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Continents } from 'src/enums/continents';
+import { ThemeService } from '../services/theme/theme.service';
 
 @Component({
   selector: 'app-search',
@@ -14,7 +15,7 @@ export class SearchComponent implements OnInit {
   continentFilter: string = 'Filter by Region';
   showRegion: boolean = false;
 
-  constructor() {}
+  constructor(public themeService: ThemeService) {}
 
   ngOnInit(): void {}
 

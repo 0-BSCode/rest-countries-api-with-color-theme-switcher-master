@@ -2,8 +2,15 @@
   <app-loader *ngIf="!country"></app-loader>
   <button class="country__goBack" *ngIf="country" (click)="goBack()">
     <img
+      *ngIf="!this.themeService.darkMode"
       class="country__goBack--arrow"
-      src="assets/Linearicons-Free-v1.0.0/SVG/arrow-left.svg"
+      src="assets/icons/arrow-left-light.svg"
+      alt="Back arrow"
+    />
+    <img
+      *ngIf="this.themeService.darkMode"
+      class="country__goBack--arrow"
+      src="assets/icons/arrow-left-dark.svg"
       alt="Back arrow"
     />
     <p class="country__goBack--text">Back</p>
@@ -17,40 +24,46 @@
       />
       <div class="country__details">
         <h4 class="country__name">{{ country.name.common }}</h4>
-        <p class="country__detail">
-          <b>Population: </b
-          >{{ formatterService.formatPopulation(country.population) }}
-        </p>
-        <p class="country__detail"><b>Region: </b>{{ country.region }}</p>
-        <p class="country__detail">
-          <b>Sub Region: </b>{{ country.subregion }}
-        </p>
-        <p class="country__detail"><b>Capital: </b>{{ country.capital }}</p>
-        <br />
-        <p class="country__detail">
-          <b>Top Level Domain: </b
-          >{{ formatterService.formatTopLevelDomains(country.tld) }}
-        </p>
-        <p class="country__detail">
-          <b>Currencies: </b
-          >{{ formatterService.formatCurrencies(country.currencies) }}
-        </p>
-        <p class="country__detail">
-          <b>Languages: </b
-          >{{ formatterService.formatLanguages(country.languages) }}
-        </p>
-      </div>
-      <div class="country__neighbors">
-        <h5 class="country__neighborsTitle">Border Countries:</h5>
-        <div class="country__neighborsList" *ngIf="borderCountries">
-          <a
-            class="country__neighbor"
-            *ngFor="let country of borderCountries"
-            routerLink="/countries/{{ country.name.official }}"
-            target="_top"
-          >
-            <p class="country__neighborName">{{ country.name.common }}</p>
-          </a>
+        <div class="country__details--flex">
+          <div class="country__detailSection">
+            <p class="country__detail">
+              <b>Population: </b
+              >{{ formatterService.formatPopulation(country.population) }}
+            </p>
+            <p class="country__detail"><b>Region: </b>{{ country.region }}</p>
+            <p class="country__detail">
+              <b>Sub Region: </b>{{ country.subregion }}
+            </p>
+            <p class="country__detail"><b>Capital: </b>{{ country.capital }}</p>
+          </div>
+          <br />
+          <div class="country__detailSection">
+            <p class="country__detail">
+              <b>Top Level Domain: </b
+              >{{ formatterService.formatTopLevelDomains(country.tld) }}
+            </p>
+            <p class="country__detail">
+              <b>Currencies: </b
+              >{{ formatterService.formatCurrencies(country.currencies) }}
+            </p>
+            <p class="country__detail">
+              <b>Languages: </b
+              >{{ formatterService.formatLanguages(country.languages) }}
+            </p>
+          </div>
+        </div>
+        <div class="country__neighbors" *ngIf="borderCountries">
+          <h5 class="country__neighborsTitle">Border Countries:</h5>
+          <div class="country__neighborsList">
+            <a
+              class="country__neighbor"
+              *ngFor="let country of borderCountries"
+              routerLink="/countries/{{ country.name.official }}"
+              target="_top"
+            >
+              <p class="country__neighborName">{{ country.name.common }}</p>
+            </a>
+          </div>
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../services/countries/countries.service';
 import { FormatterService } from '../services/formatter/formatter.service';
+import { ThemeService } from '../services/theme/theme.service';
 import { Country } from 'src/types/countries';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -18,6 +19,7 @@ export class CountryPageComponent implements OnInit {
     private route: ActivatedRoute,
     private countriesService: CountriesService,
     public formatterService: FormatterService,
+    public themeService: ThemeService,
     private location: Location
   ) {}
 

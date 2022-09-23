@@ -1,5 +1,6 @@
 section {
-  padding: 2rem 1rem;
+  padding: 2rem 0;
+  padding-inline: var(--padding-inline);
   display: flex;
   flex-direction: column;
   row-gap: 3rem;
@@ -10,7 +11,6 @@ section > * {
 }
 
 .form {
-
 }
 
 .form__wrapper {
@@ -26,6 +26,7 @@ section > * {
 }
 
 .form__input {
+  font-size: 1rem;
   width: 100%;
   position: relative;
   border: none;
@@ -38,6 +39,7 @@ section > * {
   font-family: 'Nunito Sans';
   font-weight: 1rem;
   color: var(--theme-input);
+  font-size: 0.9rem;
 }
 
 .filter {
@@ -74,11 +76,11 @@ section > * {
   box-shadow: var(--box-shadow);
   display: flex;
   flex-direction: column;
-  row-gap: 0.5rem;
-  padding: 0.5rem 0;
+  row-gap: 0.7rem;
+  padding: 1rem 0;
 }
 
-.filter__item {
+.filter__item:hover {
 }
 
 .filter__itemBtn {
@@ -88,4 +90,32 @@ section > * {
   background-color: var(--theme-elements);
   border: none;
   font-family: 'Nunito Sans';
+  font-size: 1rem;
+}
+
+.filter__itemBtn:hover {
+  font-weight: 700;
+}
+
+@media screen and (min-width: 1024px) {
+  section {
+    width: 100%;
+    flex-direction: row;
+    row-gap: 0;
+    column-gap: 3rem;
+    justify-content: space-between;
+  }
+
+  .form {
+    flex: 0.6;
+  }
+
+  .filter__btn {
+    width: 100%;
+    column-gap: 1rem;
+  }
+
+  .filter__items {
+    width: 100%;
+  }
 }

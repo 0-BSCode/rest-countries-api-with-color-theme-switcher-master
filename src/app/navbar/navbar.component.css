@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 1rem;
+  padding: 2rem 0;
+  padding-inline: var(--padding-inline);
   background-color: var(--theme-elements);
   box-shadow: var(--box-shadow);
 }
@@ -27,4 +28,11 @@
 
 .nav__btnText {
   font-weight: 600;
+  font-size: 0.9rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .nav__title {
+    font-size: 1.5rem;
+  }
 }

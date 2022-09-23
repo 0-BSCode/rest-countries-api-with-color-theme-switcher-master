@@ -2,7 +2,14 @@
   <form #form="ngForm" (submit)="startSearchByName()" class="form">
     <div class="form__wrapper">
       <img
-        src="assets/Linearicons-Free-v1.0.0/SVG/magnifier.svg"
+        *ngIf="!this.themeService.darkMode"
+        src="assets/icons/magnifier-light.svg"
+        class="form__inputImg"
+        alt="Search icon"
+      />
+      <img
+        *ngIf="this.themeService.darkMode"
+        src="assets/icons/magnifier-dark.svg"
         class="form__inputImg"
         alt="Search icon"
       />
@@ -21,7 +28,14 @@
         {{ continentFilter }}
       </p>
       <img
-        src="assets/Linearicons-Free-v1.0.0/SVG/arrow-down.svg"
+        *ngIf="!this.themeService.darkMode"
+        src="assets/icons/arrow-down-light.svg"
+        class="filter__img"
+        alt="Search icon"
+      />
+      <img
+        *ngIf="this.themeService.darkMode"
+        src="assets/icons/arrow-down-dark.svg"
         class="filter__img"
         alt="Search icon"
       />

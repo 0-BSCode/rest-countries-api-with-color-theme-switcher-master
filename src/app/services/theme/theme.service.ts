@@ -6,8 +6,13 @@ import { Injectable } from '@angular/core';
 export class ThemeService {
   private getter = window.getComputedStyle(document.documentElement);
   private setter = document.documentElement.style;
+  darkMode: boolean = false;
 
   constructor() {}
+
+  toggleMode(): void {
+    this.darkMode = !this.darkMode;
+  }
 
   darkTheme(): void {
     // DARK MODE COLORS

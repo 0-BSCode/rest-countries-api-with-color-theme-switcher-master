@@ -2,8 +2,15 @@
   <h1 class="nav__title">Where in the world?</h1>
   <button class="nav__btn" (click)="toggleMode()">
     <img
+      *ngIf="!this.themeService.darkMode"
       class="nav__btnImg"
-      src="assets/Linearicons-Free-v1.0.0/SVG/moon.svg"
+      src="assets/icons/moon-light.svg"
+      alt="Moon icon"
+    />
+    <img
+      *ngIf="this.themeService.darkMode"
+      class="nav__btnImg"
+      src="assets/icons/moon-dark.svg"
       alt="Moon icon"
     />
     <p class="nav__btnText">Dark Mode</p>
