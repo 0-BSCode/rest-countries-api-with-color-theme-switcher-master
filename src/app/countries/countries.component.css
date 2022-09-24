@@ -13,6 +13,13 @@
   border-radius: 0.5rem;
   box-shadow: var(--box-shadow);
   flex-grow: 1;
+  opacity: 0;
+  transform: translateY(2rem);
+}
+
+.country--show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .country:hover {

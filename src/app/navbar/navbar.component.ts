@@ -21,10 +21,3 @@ export class NavbarComponent implements OnInit {
     }
   }
 }
-
-/* STUFF TO DO
-1. Desktop design
-2. Adjust size for mobile sizes
-3. Don't load all cards at once (render a few at a time)
-4. Slightly better loading animation
-*/

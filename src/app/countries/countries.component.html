@@ -1,5 +1,5 @@
 <section *ngIf="countries" class="country__wrapper">
-  <div *ngFor="let country of countries" class="country">
+  <div *ngFor="let country of countries" class="country country--show">
     <a
       class="country__link"
       routerLink="/countries/{{ country.name.official }}"

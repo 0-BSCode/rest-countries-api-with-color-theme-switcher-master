@@ -47,7 +47,7 @@ section > * {
 }
 
 .filter__btn {
-  width: 50%;
+  width: 11rem;
   padding: 1rem 1.2rem;
   display: flex;
   justify-content: space-between;
@@ -69,6 +69,7 @@ section > * {
 .filter__items {
   position: absolute;
   list-style-type: none;
+  z-index: 999;
   width: 50%;
   background-color: var(--theme-elements);
   margin-top: 0.5rem;
@@ -111,7 +112,6 @@ section > * {
   }
 
   .filter__btn {
-    width: 100%;
     column-gap: 1rem;
   }
 
